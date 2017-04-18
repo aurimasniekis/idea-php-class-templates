@@ -51,7 +51,7 @@ public class PhpNewTemplateClassDialog extends PhpNewClassDialog {
 
         this.myKindUpDownHint = new JLabel();
         this.myKindUpDownHint.setIcon(PlatformIcons.UP_DOWN_ARROWS);
-        this.myKindUpDownHint.setToolTipText(PhpBundle.message("actions.new.php.base.arrows.kind.tooltip"));
+        this.myKindUpDownHint.setToolTipText("Pressing Up or Down arrows while in editor changes the template");
 
 
         this.myKindComboBox = new ComboBox<String>();
