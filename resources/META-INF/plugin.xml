@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>com.aurimasniekis.phpclasstemplates</id>
   <name>PHP Class Templates</name>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <vendor email="aurimas@niekis.lt" url="https://aurimas@niekis.lt">Aurimas Niekis</vendor>
 
   <description><![CDATA[
