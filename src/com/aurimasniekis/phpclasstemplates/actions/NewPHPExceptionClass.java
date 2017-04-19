@@ -18,7 +18,6 @@ public class NewPHPExceptionClass extends PhpNewBaseAction {
 
     protected PhpCreateFileFromTemplateDataProvider getDataProvider(@NotNull Project project, @NotNull PsiDirectory dir, @Nullable PsiFile file) {
         PhpNewExceptionClassDialog dialog = new PhpNewExceptionClassDialog(project, dir);
-//        PhpNewClassDialog dialog = new PhpNewClassDialog(project, dir);
 
         if (!dialog.showAndGet()) {
             return null;
