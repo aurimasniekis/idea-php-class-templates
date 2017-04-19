@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>com.aurimasniekis.phpclasstemplates</id>
   <name>PHP Class Templates</name>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <vendor email="aurimas@niekis.lt" url="https://aurimas@niekis.lt">Aurimas Niekis</vendor>
 
   <description><![CDATA[
@@ -23,6 +23,10 @@
 
   <depends>com.jetbrains.php</depends>
   <depends>com.intellij.modules.platform</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <internalFileTemplate name="PHP Exception"/>
+  </extensions>
 
   <actions>
     <group id="PhpNewClassGroup">
