@@ -5,7 +5,6 @@ import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiDirectory;
 import com.intellij.psi.PsiFile;
 import com.jetbrains.php.actions.PhpNewBaseAction;
-import com.jetbrains.php.actions.PhpNewClassDialog;
 import com.jetbrains.php.templates.PhpCreateFileFromTemplateDataProvider;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

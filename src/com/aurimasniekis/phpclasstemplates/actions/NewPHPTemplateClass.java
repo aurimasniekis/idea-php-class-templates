@@ -1,6 +1,5 @@
 package com.aurimasniekis.phpclasstemplates.actions;
 
-import com.aurimasniekis.phpclasstemplates.dialog.PhpNewExceptionClassDialog;
 import com.aurimasniekis.phpclasstemplates.dialog.PhpNewTemplateClassDialog;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiDirectory;

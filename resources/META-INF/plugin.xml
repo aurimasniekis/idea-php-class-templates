@@ -8,12 +8,12 @@
       Provides additional file templates for php development<br>
       <ul>
         <li>PHP Exception Class (With selection which Exception Class to extend)</li>
-        <li>PHP Class From Template (New file from <b>File Templates</b> with defined file extension <b>class.php</b></li>
+        <li>PHP Class From Template (New file from <b>File Templates</b> with defined file extension <b>class.*</b> (e.g. class.php)</li>
       </ul>
 
       <h3>PHP Class From Template Usage</h3>
 
-      <p>PHP Class From Template uses File Templates with file extension "class.php"</p>
+      <p>PHP Class From Template uses File Templates with file extension "class.*"</p>
     ]]>
   </description>
 
