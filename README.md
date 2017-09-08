@@ -7,7 +7,7 @@
 A PHPStorm Plugin providing custom PHP class templates.
 
 * PHP Exception Class (With selection which Exception Class to extend)
-* PHP Class From Template (New file from `File Templates` with defined file extension `class.php`
+* PHP Class From Template (New file from `File Templates` with defined file extension `class.*` (e.g. `class.php`)
 
 ## Install
 
@@ -15,7 +15,7 @@ Install the plugin by going to `Settings -> Plugins -> Browse repositories` and 
 
 ## Usage
 
-**PHP Class From Template** uses File Templates from `Settings -> Editor -> File and Code Templates -> Files` templates with file extension `class.php`
+**PHP Class From Template** uses File Templates from `Settings -> Editor -> File and Code Templates -> Files` templates with file extension `class.*`
 
 **PHP Exception Class** uses File Template `PHP Exception`
 

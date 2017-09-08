@@ -9,21 +9,20 @@ import com.intellij.openapi.actionSystem.Shortcut;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.ComboBox;
 import com.intellij.openapi.util.Trinity;
-import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.psi.PsiDirectory;
 import com.intellij.ui.ComboboxSpeedSearch;
 import com.intellij.ui.EditorTextField;
 import com.intellij.ui.ListCellRendererWrapper;
+import com.intellij.util.ArrayUtil;
 import com.intellij.util.PlatformIcons;
 import com.intellij.util.ui.FormBuilder;
-import com.jetbrains.php.PhpBundle;
 import com.jetbrains.php.PhpIcons;
 import com.jetbrains.php.actions.PhpNewFileDialog;
+import com.jetbrains.php.templates.PhpFileTemplateUtil;
+import com.jetbrains.php.templates.PhpTemplatesSettings;
 import org.apache.velocity.runtime.parser.ParseException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import sun.jvm.hotspot.ui.Editor;
-import sun.jvm.hotspot.utilities.HashtableEntry;
 
 import javax.swing.*;
 import java.awt.*;
@@ -95,6 +94,13 @@ public class PhpNewTemplateClassDialog extends PhpNewClassDialog {
         this.myTemplateAttributes.getPanel().removeAll();
         this.myTemplateAttributesFields.clear();
 
+        String[] registeredExtensions = PhpFileTemplateUtil.getRegisteredPhpFileExtensions();
+        String templateExtension = template.getExtension().replaceFirst("^class\\.", "");
+        int indexOfTemplateExtension = ArrayUtil.indexOf(registeredExtensions, templateExtension);
+        if (indexOfTemplateExtension > -1) {
+            this.myExtensionComboBox.setSelectedIndex(indexOfTemplateExtension);
+        }
+
         String[] attrs = new String[0];
         try {
             attrs = template.getUnsetAttributes(this.getProperties(this.getDirectory()), this.myProject);
@@ -141,7 +147,7 @@ public class PhpNewTemplateClassDialog extends PhpNewClassDialog {
         FileTemplate classTemplate = FileTemplateManager.getInstance(this.myProject).getInternalTemplate("PHP Class");
 
         for (FileTemplate template : FileTemplateManager.getInstance(this.myProject).getAllTemplates()) {
-            if (template.getExtension().equals("class.php")) {
+            if (template.getExtension().startsWith("class.")) {
                 templates.add(new Trinity(template.getName(), PhpIcons.CLASS, template));
             }
         }
@@ -170,7 +176,13 @@ public class PhpNewTemplateClassDialog extends PhpNewClassDialog {
             this.myProperties.setProperty(entry.getKey(), entry.getValue().getText());
         }
 
+        PhpTemplatesSettings settings = PhpTemplatesSettings.getInstance(this.myProject);
+        String lastExtension = settings.NEW_PHP_CLASS_LAST_EXTENSION;
+
         super.doOKAction();
+
+        // Restore previous selected extension to not interfere with standard dialog
+        settings.NEW_PHP_CLASS_LAST_EXTENSION = lastExtension;
     }
 
     @NotNull
